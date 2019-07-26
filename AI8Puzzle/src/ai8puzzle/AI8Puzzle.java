@@ -16,6 +16,7 @@ public class AI8Puzzle {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        System.out.println("BFS Day 1");
     }
     
 }
