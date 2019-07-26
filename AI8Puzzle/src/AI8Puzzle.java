@@ -23,6 +23,7 @@ public class AI8Puzzle extends Application {
     }
 
 
+    
     public static void main(String[] args) {
 
         launch(args);
