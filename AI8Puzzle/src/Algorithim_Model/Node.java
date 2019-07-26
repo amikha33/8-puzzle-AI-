@@ -6,6 +6,7 @@ package Algorithim_Model;/*
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * @author Aghapy
@@ -24,6 +25,10 @@ public class Node {
     public Node(int[] state, Node parent) {
         this.state = state;
         this.parent = parent;
+    }
+
+    Node(EightPuzzleState eightPuzzleState) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public void generateChildren() {
@@ -157,4 +162,8 @@ public class Node {
         this.parent = parent;
     }
 
+
+    boolean isGoal() {
+      EightPuzzleState n = new EightPuzzleState(state);
+        return Arrays.equals(n.curBoard, n.GOAL);}
 }
