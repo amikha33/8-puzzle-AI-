@@ -4,25 +4,27 @@ package Algorithim_Model;/*
  * and open the template in the editor.
  */
 
+
 import java.util.ArrayList;
 
 /**
  * @author Aghapy
  */
 public class Node {
+
     /**
-     * (RIGHT = childre[0], LEFT = childre[1], UP = childre[2], DOWN = childre[3]).
-     **/
+     * (RIGHT = childre[0], LEFT = childre[1], UP = childre[2], DOWN =
+     * childre[3]).
+     *
+     */
     private int[] state = new int[9];
     private ArrayList<Node> children;
     private Node parent;
-
 
     public Node(int[] state, Node parent) {
         this.state = state;
         this.parent = parent;
     }
-
 
     public void generateChildren() {
         children = new ArrayList<>();
@@ -46,44 +48,60 @@ public class Node {
                 newChildren.add(0, moveRight(emptyTile));
                 newChildren.add(1, moveLeft(emptyTile));
                 newChildren.add(3, moveDown(emptyTile));
+                break;
+
             case 2:
                 newChildren.add(1, moveLeft(emptyTile));
                 newChildren.add(3, moveDown(emptyTile));
+                break;
+
             case 3:
                 newChildren.add(0, moveRight(emptyTile));
                 newChildren.add(2, moveUp(emptyTile));
                 newChildren.add(3, moveDown(emptyTile));
+                break;
+
             case 4:
                 newChildren.add(0, moveRight(emptyTile));
                 newChildren.add(1, moveLeft(emptyTile));
                 newChildren.add(2, moveUp(emptyTile));
                 newChildren.add(3, moveDown(emptyTile));
+                break;
+
             case 5:
                 newChildren.add(1, moveLeft(emptyTile));
                 newChildren.add(2, moveUp(emptyTile));
+
                 newChildren.add(3, moveDown(emptyTile));
+                break;
+
             case 6:
                 newChildren.add(0, moveRight(emptyTile));
                 newChildren.add(2, moveUp(emptyTile));
+                break;
+
             case 7:
                 newChildren.add(0, moveRight(emptyTile));
                 newChildren.add(1, moveLeft(emptyTile));
                 newChildren.add(2, moveUp(emptyTile));
+                break;
+
             case 8:
                 newChildren.add(1, moveLeft(emptyTile));
                 newChildren.add(2, moveUp(emptyTile));
+                break;
+
         }
         if (parent != null) {
             for (Node newChild : newChildren) {
                 if (newChild != null) {
                     if (!newChild.getState().equals(parent.getState())) {
-                        children.add(children.indexOf(newChild),newChild);
+                        children.add(children.indexOf(newChild), newChild);
                     }
                 }
             }
         }
     }
-
 
     private Node moveUp(int emptyTile) {
         int[] newState = state.clone();
@@ -115,7 +133,6 @@ public class Node {
         array[secondIndex] = buffer;
     }
 
-
     public int[] getState() {
         return state;
     }
@@ -139,5 +156,5 @@ public class Node {
     public void setParent(Node parent) {
         this.parent = parent;
     }
-   
+
 }
