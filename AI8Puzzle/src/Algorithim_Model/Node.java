@@ -10,17 +10,18 @@ import java.util.ArrayList;
  * @author Aghapy
  */
 public class Node {
-    /**  (RIGHT = childre[0], LEFT = childre[1], UP = childre[2], DOWN = childre[3]).**/
+    /**
+     * (RIGHT = childre[0], LEFT = childre[1], UP = childre[2], DOWN = childre[3]).
+     **/
     private int[] state = new int[9];
     private ArrayList<Node> children;
     private Node parent;
 
 
-    public Node(int[] state , Node parent) {
+    public Node(int[] state, Node parent) {
         this.state = state;
         this.parent = parent;
     }
-
 
 
     public void generateChildren() {
@@ -35,47 +36,49 @@ public class Node {
     }
 
     private void moveTile(int emptyTile) {
-       ArrayList<Node> newChildren = new ArrayList<>();
+        ArrayList<Node> newChildren = new ArrayList<>();
         switch (emptyTile) {
             case 0:
-                newChildren.add(0, moveRight(emptyTile) );
-                newChildren.add(3,  moveDown(emptyTile) );
+                newChildren.add(0, moveRight(emptyTile));
+                newChildren.add(3, moveDown(emptyTile));
                 break;
             case 1:
-                newChildren.add(0,  moveRight(emptyTile) );
-                newChildren.add(1,  moveLeft(emptyTile) );
-                newChildren.add(3,  moveDown(emptyTile) );
+                newChildren.add(0, moveRight(emptyTile));
+                newChildren.add(1, moveLeft(emptyTile));
+                newChildren.add(3, moveDown(emptyTile));
             case 2:
-                newChildren.add(1,  moveLeft(emptyTile) );
-                newChildren.add(3,  moveDown(emptyTile) );
+                newChildren.add(1, moveLeft(emptyTile));
+                newChildren.add(3, moveDown(emptyTile));
             case 3:
-                newChildren.add(0,  moveRight(emptyTile) );
-                newChildren.add(2,  moveUp(emptyTile) );
-                newChildren.add(3,  moveDown(emptyTile) );
+                newChildren.add(0, moveRight(emptyTile));
+                newChildren.add(2, moveUp(emptyTile));
+                newChildren.add(3, moveDown(emptyTile));
             case 4:
-                newChildren.add(0,  moveRight(emptyTile) );
-                newChildren.add(1, moveLeft(emptyTile) );
-                newChildren.add(2,  moveUp(emptyTile) );
-                newChildren.add(3,  moveDown(emptyTile) );
+                newChildren.add(0, moveRight(emptyTile));
+                newChildren.add(1, moveLeft(emptyTile));
+                newChildren.add(2, moveUp(emptyTile));
+                newChildren.add(3, moveDown(emptyTile));
             case 5:
-                newChildren.add(1,  moveLeft(emptyTile) );
-                newChildren.add(2,  moveUp(emptyTile) );
-                newChildren.add(3, moveDown(emptyTile) );
+                newChildren.add(1, moveLeft(emptyTile));
+                newChildren.add(2, moveUp(emptyTile));
+                newChildren.add(3, moveDown(emptyTile));
             case 6:
-                newChildren.add(0,  moveRight(emptyTile) );
-                newChildren.add(2,  moveUp (emptyTile) );
+                newChildren.add(0, moveRight(emptyTile));
+                newChildren.add(2, moveUp(emptyTile));
             case 7:
-                newChildren.add(0,  moveRight(emptyTile) );
-                newChildren.add(1,  moveLeft(emptyTile) );
-                newChildren.add(2,  moveUp (emptyTile) );
+                newChildren.add(0, moveRight(emptyTile));
+                newChildren.add(1, moveLeft(emptyTile));
+                newChildren.add(2, moveUp(emptyTile));
             case 8:
-                newChildren.add(1,  moveLeft(emptyTile) );
-                newChildren.add(2,  moveUp(emptyTile) );
+                newChildren.add(1, moveLeft(emptyTile));
+                newChildren.add(2, moveUp(emptyTile));
         }
-        for (Node newChild:newChildren) {
-            if (parent != null) {
-                if (!newChild.getState().equals(parent.getState())) {
-                    children.add(newChild);
+        if (parent != null) {
+            for (Node newChild : newChildren) {
+                if (newChild != null) {
+                    if (!newChild.getState().equals(parent.getState())) {
+                        children.add(children.indexOf(newChild),newChild);
+                    }
                 }
             }
         }
@@ -85,19 +88,19 @@ public class Node {
     private Node moveUp(int emptyTile) {
         int[] newState = state.clone();
         swapTwoNosInArray(newState, emptyTile, emptyTile - 3);
-        return new Node(newState,this);
+        return new Node(newState, this);
     }
 
     private Node moveDown(int emptyTile) {
         int[] newState = state.clone();
         swapTwoNosInArray(newState, emptyTile, emptyTile + 3);
-        return new Node(newState,this);
+        return new Node(newState, this);
     }
 
     private Node moveRight(int emptyTile) {
         int[] newState = state.clone();
         swapTwoNosInArray(newState, emptyTile, emptyTile + 1);
-        return new Node(newState,this);
+        return new Node(newState, this);
     }
 
     private Node moveLeft(int emptyTile) {
@@ -111,7 +114,6 @@ public class Node {
         array[firstIndex] = array[secondIndex];
         array[secondIndex] = buffer;
     }
-
 
 
     public int[] getState() {
