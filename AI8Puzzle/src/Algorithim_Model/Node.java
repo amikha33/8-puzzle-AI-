@@ -1,4 +1,4 @@
-/*
+package Algorithim_Model;/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -10,8 +10,7 @@ import java.util.ArrayList;
  * @author Aghapy
  */
 public class Node {
-
-
+    /**  (RIGHT = childre[0], LEFT = childre[1], UP = childre[2], DOWN = childre[3]).**/
     private int[] state = new int[9];
     private ArrayList<Node> children;
     private Node parent;
@@ -39,39 +38,39 @@ public class Node {
        ArrayList<Node> newChildren = new ArrayList<>();
         switch (emptyTile) {
             case 0:
-                newChildren.add( moveRight(emptyTile) );
-                newChildren.add(  moveDown(emptyTile) );
+                newChildren.add(0, moveRight(emptyTile) );
+                newChildren.add(3,  moveDown(emptyTile) );
                 break;
             case 1:
-                newChildren.add(  moveRight(emptyTile) );
-                newChildren.add(  moveLeft(emptyTile) );
-                newChildren.add(  moveDown(emptyTile) );
+                newChildren.add(0,  moveRight(emptyTile) );
+                newChildren.add(1,  moveLeft(emptyTile) );
+                newChildren.add(3,  moveDown(emptyTile) );
             case 2:
-                newChildren.add(  moveLeft(emptyTile) );
-                newChildren.add(  moveDown(emptyTile) );
+                newChildren.add(1,  moveLeft(emptyTile) );
+                newChildren.add(3,  moveDown(emptyTile) );
             case 3:
-                newChildren.add(  moveUp(emptyTile) );
-                newChildren.add(  moveRight(emptyTile) );
-                newChildren.add(  moveDown(emptyTile) );
+                newChildren.add(0,  moveRight(emptyTile) );
+                newChildren.add(2,  moveUp(emptyTile) );
+                newChildren.add(3,  moveDown(emptyTile) );
             case 4:
-                newChildren.add(  moveUp(emptyTile) );
-                newChildren.add(  moveRight(emptyTile) );
-                newChildren.add(  moveLeft(emptyTile) );
-                newChildren.add(  moveDown(emptyTile) );
+                newChildren.add(0,  moveRight(emptyTile) );
+                newChildren.add(1, moveLeft(emptyTile) );
+                newChildren.add(2,  moveUp(emptyTile) );
+                newChildren.add(3,  moveDown(emptyTile) );
             case 5:
-                newChildren.add(  moveUp(emptyTile) );
-                newChildren.add(  moveLeft(emptyTile) );
-                newChildren.add(  moveDown(emptyTile) );
+                newChildren.add(1,  moveLeft(emptyTile) );
+                newChildren.add(2,  moveUp(emptyTile) );
+                newChildren.add(3, moveDown(emptyTile) );
             case 6:
-                newChildren.add(  moveUp (emptyTile) );
-                newChildren.add(  moveRight(emptyTile) );
+                newChildren.add(0,  moveRight(emptyTile) );
+                newChildren.add(2,  moveUp (emptyTile) );
             case 7:
-                newChildren.add(  moveUp (emptyTile) );
-                newChildren.add(  moveRight(emptyTile) );
-                newChildren.add(  moveLeft(emptyTile) );
+                newChildren.add(0,  moveRight(emptyTile) );
+                newChildren.add(1,  moveLeft(emptyTile) );
+                newChildren.add(2,  moveUp (emptyTile) );
             case 8:
-                newChildren.add(  moveUp(emptyTile) );
-                newChildren.add(  moveLeft(emptyTile) );
+                newChildren.add(1,  moveLeft(emptyTile) );
+                newChildren.add(2,  moveUp(emptyTile) );
         }
         for (Node newChild:newChildren) {
             if (parent != null) {

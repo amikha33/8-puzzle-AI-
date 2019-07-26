@@ -1,3 +1,5 @@
+package Controller;
+
 import javafx.fxml.Initializable;
 
 import java.net.URL;

@@ -1,3 +1,5 @@
+package Controller;
+
 public class GameEngine {
 
     private static GameEngine ourInstance = new GameEngine();
