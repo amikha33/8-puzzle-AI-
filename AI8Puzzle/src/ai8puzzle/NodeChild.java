@@ -13,6 +13,10 @@ import java.util.ArrayList;
  */
 public class NodeChild {
     int  state [] ;
+      ArrayList<Integer> neighbors = new ArrayList<Integer>();
+
+    
+
 
 
    int getNeighbors(int[] children) {
@@ -33,7 +37,37 @@ public class NodeChild {
    }
    void move(int blockIndex , int[] children){
    
-   
+   // Try moving the Block left
+        if (blockIndex % 3 != 0) {
+            int[] other = new int[children.length];
+            System.arraycopy(this.state, 0, other, 0, children.length);
+            other[blockIndex] = this.state[blockIndex - 1];
+            other[blockIndex - 1] = 0;
+        }
+
+        // Try moving the blank right
+        if (blockIndex % 3 != 2) {
+            int[] other = new int[children.length];
+            System.arraycopy(this.state, 0, other, 0,children.length);
+            other[blockIndex] = this.state[blockIndex + 1];
+            other[blockIndex + 1] = 0;
+        }
+
+        // Try moving the blank up
+        if (blockIndex >= 3) {
+            int[] other = new int[children.length];
+            System.arraycopy(this.state, 0, other, 0, children.length);
+            other[blockIndex] = this.state[blockIndex - 3];
+            other[blockIndex - 3] = 0;
+        }
+
+        // Try moving the blank down
+        if (blockIndex < children.length -3) {
+            int[] other = new int[children.length];
+            System.arraycopy(this.state, 0, other, 0,children.length);
+            other[blockIndex] = this.state[blockIndex + 3];
+            other[blockIndex + 3] = 0;
+        }
    
    }
 }
