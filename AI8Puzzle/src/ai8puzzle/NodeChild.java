@@ -36,13 +36,17 @@ public class NodeChild {
         return blockIndex;    
    }
    void move(int blockIndex , int[] children){
-   
+   for  (int i = 0; i < children.length; i++) {
+           
+       
    // Try moving the Block left
         if (blockIndex % 3 != 0) {
             int[] other = new int[children.length];
             System.arraycopy(this.state, 0, other, 0, children.length);
             other[blockIndex] = this.state[blockIndex - 1];
             other[blockIndex - 1] = 0;
+            neighbors.add(other[i]);
+            
         }
 
         // Try moving the blank right
@@ -51,6 +55,8 @@ public class NodeChild {
             System.arraycopy(this.state, 0, other, 0,children.length);
             other[blockIndex] = this.state[blockIndex + 1];
             other[blockIndex + 1] = 0;
+                        neighbors.add(other[i]);
+
         }
 
         // Try moving the blank up
@@ -59,6 +65,8 @@ public class NodeChild {
             System.arraycopy(this.state, 0, other, 0, children.length);
             other[blockIndex] = this.state[blockIndex - 3];
             other[blockIndex - 3] = 0;
+                        neighbors.add(other[i]);
+
         }
 
         // Try moving the blank down
@@ -67,7 +75,10 @@ public class NodeChild {
             System.arraycopy(this.state, 0, other, 0,children.length);
             other[blockIndex] = this.state[blockIndex + 3];
             other[blockIndex + 3] = 0;
+            neighbors.add(other[i]);
+
         }
+   }
    
    }
 }
