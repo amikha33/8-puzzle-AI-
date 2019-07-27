@@ -21,7 +21,7 @@ public class BFS {
         queue.add(root);
 
         performSearch(queue);
-
+    }
         /*
          * Helper method to check to see if a SearchNode has already been evaluated.
          * Returns true if it has, false if it hasn't.
