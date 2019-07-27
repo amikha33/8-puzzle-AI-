@@ -46,53 +46,53 @@ public class Node {
         ArrayList<Node> newChildren = new ArrayList<>(Arrays.asList(new Node[4]));
         switch (emptyTile) {
             case 0:
-                newChildren.add(0, moveRight(emptyTile));
-                newChildren.add(3, moveDown(emptyTile));
+                newChildren.set(0, moveRight(emptyTile));
+                newChildren.set(3, moveDown(emptyTile));
                 break;
             case 1:
-                newChildren.add(0, moveRight(emptyTile));
-                newChildren.add(1, moveLeft(emptyTile));
-                newChildren.add(3, moveDown(emptyTile));
+                newChildren.set(0, moveRight(emptyTile));
+                newChildren.set(1, moveLeft(emptyTile));
+                newChildren.set(3, moveDown(emptyTile));
                 break;
 
             case 2:
-                newChildren.add(1, moveLeft(emptyTile));
-                newChildren.add(3, moveDown(emptyTile));
+                newChildren.set(1, moveLeft(emptyTile));
+                newChildren.set(3, moveDown(emptyTile));
                 break;
 
             case 3:
-                newChildren.add(0, moveRight(emptyTile));
-                newChildren.add(2, moveUp(emptyTile));
-                newChildren.add(3, moveDown(emptyTile));
+                newChildren.set(0, moveRight(emptyTile));
+                newChildren.set(2, moveUp(emptyTile));
+                newChildren.set(3, moveDown(emptyTile));
                 break;
 
             case 4:
-                newChildren.add(0, moveRight(emptyTile));
-                newChildren.add(1, moveLeft(emptyTile));
-                newChildren.add(2, moveUp(emptyTile));
-                newChildren.add(3, moveDown(emptyTile));
+                newChildren.set(0, moveRight(emptyTile));
+                newChildren.set(1, moveLeft(emptyTile));
+                newChildren.set(2, moveUp(emptyTile));
+                newChildren.set(3, moveDown(emptyTile));
                 break;
 
             case 5:
-                newChildren.add(1, moveLeft(emptyTile));
-                newChildren.add(2, moveUp(emptyTile));
-                newChildren.add(3, moveDown(emptyTile));
+                newChildren.set(1, moveLeft(emptyTile));
+                newChildren.set(2, moveUp(emptyTile));
+                newChildren.set(3, moveDown(emptyTile));
                 break;
 
             case 6:
-                newChildren.add(0, moveRight(emptyTile));
-                newChildren.add(2, moveUp(emptyTile));
+                newChildren.set(0, moveRight(emptyTile));
+                newChildren.set(2, moveUp(emptyTile));
                 break;
 
             case 7:
-                newChildren.add(0, moveRight(emptyTile));
-                newChildren.add(1, moveLeft(emptyTile));
-                newChildren.add(2, moveUp(emptyTile));
+                newChildren.set(0, moveRight(emptyTile));
+                newChildren.set(1, moveLeft(emptyTile));
+                newChildren.set(2, moveUp(emptyTile));
                 break;
 
             case 8:
-                newChildren.add(1, moveLeft(emptyTile));
-                newChildren.add(2, moveUp(emptyTile));
+                newChildren.set(1, moveLeft(emptyTile));
+                newChildren.set(2, moveUp(emptyTile));
                 break;
 
         }
