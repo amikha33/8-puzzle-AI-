@@ -32,11 +32,6 @@ public class AI8Puzzle extends Application {
     public static void main(String[] args) {
 
         launch(args);
-        Algorithm myAlgorithm = new BFS();
-        int [] arr = {1,2,3,4,5,6,7,0,8};
-        int [] arr2 = {1,2,3,4,5,6,7,0,8};
-
-        myAlgorithm.search(arr,null);
 
     }
 

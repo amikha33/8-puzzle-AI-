@@ -1,6 +1,9 @@
 package Algorithm_Model;
 
+import java.util.ArrayList;
+
 public interface Algorithm {
 
-    public void search(int [] board,Node parent);
+    public ArrayList<Node> search(int [] board, Node parent);
+
 }

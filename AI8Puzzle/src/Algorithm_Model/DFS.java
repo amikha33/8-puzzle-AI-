@@ -1,4 +1,10 @@
 package Algorithm_Model;
 
-public class DFS {
+import java.util.ArrayList;
+
+public class DFS implements Algorithm{
+    @Override
+    public ArrayList<Node> search(int[] board, Node parent) {
+        return null;
+    }
 }

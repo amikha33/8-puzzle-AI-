@@ -1,8 +1,10 @@
 package Algorithm_Model;
 
+import java.util.ArrayList;
+
 public class A_Star implements Algorithm{
     @Override
-    public void search(int[] board, Node parent) {
-
+    public ArrayList<Node> search(int[] board, Node parent) {
+        return null;
     }
 }

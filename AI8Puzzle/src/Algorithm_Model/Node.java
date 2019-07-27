@@ -165,5 +165,6 @@ public class Node {
 
     boolean isGoal() {
       EightPuzzleState n = new EightPuzzleState(state);
+
         return Arrays.equals(n.curBoard, n.GOAL);}
 }

@@ -3,6 +3,7 @@ package Algorithm_Model;/*
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
@@ -12,14 +13,15 @@ import java.util.Stack;
  */
 public class BFS implements Algorithm{
 
-
     @Override
-    public void search(int [] board,Node parent ) {
+    public ArrayList<Node> search(int [] board, Node parent ) {
         Queue<Node> queue = new LinkedList<Node>();
         Node root = new Node(board, null);
         queue.add(root);
 
         performSearch(queue);
+
+        return null;
     }
         /*
          * Helper method to check to see if a SearchNode has already been evaluated.
@@ -51,14 +53,20 @@ public class BFS implements Algorithm{
 
             while (!q.isEmpty()) // while the queue is not empty
             {
+                //System.out.println("Ssize of queue"+q.size());
                 Node tempNode = q.poll();
 
                 if (!tempNode.isGoal()) // if tempNode is not the goal
                 // state
                 {
+                    System.out.println(tempNode.getState()[0]+" "+tempNode.getState()[1]+" "+tempNode.getState()[2]+"\n"+
+                            tempNode.getState()[3]+" "+tempNode.getState()[4]+" "+tempNode.getState()[5]+"\n"+
+                            tempNode.getState()[6]+" "+tempNode.getState()[7]+" "+tempNode.getState()[8]+"\n"
+                    );
                     int[] tempSuccessors = tempNode.getState();
                     for (int i = 0; i < tempSuccessors.length; i++) {
-                        int [] qq = null;
+                        int [] qq = tempSuccessors;
+
                         // second parameter here adds the cost of the new node to
                         // the current cost total in the SearchNode
                         Node newNode = new Node(qq ,null);

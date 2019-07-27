@@ -20,10 +20,12 @@ public class EightPuzzleState {
          private int outOfPlace = 0;
 
        public EightPuzzleState(int[] board) {
-        curBoard = board;
-        setOutOfPlace();
-        setManDist();
-    }
+           //System.out.println("here is");
+           //System.out.println(board);
+           curBoard = board;
+           setOutOfPlace();
+           setManDist();
+        }
      
      
      
