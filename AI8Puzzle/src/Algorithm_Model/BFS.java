@@ -65,7 +65,7 @@ public class BFS implements Algorithm{
                     );
                     tempNode.generateChildren();
                     ArrayList<Node> Children = tempNode.getChildren();
-                    System.out.println(Children.size());
+                    //System.out.println(Children.size());
                     for (int i = 0; i < Children.size(); i++) {
                         if (Children.get(i) == null)
                             continue;
@@ -73,15 +73,15 @@ public class BFS implements Algorithm{
 
                         // second parameter here adds the cost of the new node to
                         // the current cost total in the SearchNode
-                        System.out.println("Not Null at "+i);
+                     //   System.out.println("Not Null at "+i);
                         Node newNode = Children.get(i);
                         q.add(newNode);
-                        System.out.println(newNode.getState()[0]+" "+newNode.getState()[1]+" "+newNode.getState()[2]+"\n"+
-                                newNode.getState()[3]+" "+newNode.getState()[4]+" "+newNode.getState()[5]+"\n"+
-                                newNode.getState()[6]+" "+newNode.getState()[7]+" "+newNode.getState()[8]+"\n"
-                        );
+//                        System.out.println(newNode.getState()[0]+" "+newNode.getState()[1]+" "+newNode.getState()[2]+"\n"+
+//                                newNode.getState()[3]+" "+newNode.getState()[4]+" "+newNode.getState()[5]+"\n"+
+//                                newNode.getState()[6]+" "+newNode.getState()[7]+" "+newNode.getState()[8]+"\n"
+//                        );
                         if (!checkRepeats(newNode)) {
-                            System.out.println("Added Child to Queue");
+                            //System.out.println("Added Child to Queue");
                            // q.add(newNode);
                         }
                     }

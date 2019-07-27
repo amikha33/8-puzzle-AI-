@@ -66,7 +66,8 @@ public class DFS implements Algorithm{
                 tempNode.generateChildren();
                 ArrayList<Node> Children = tempNode.getChildren();
                 //System.out.println(Children.size());
-                for (int i = 0; i < Children.size(); i++) {
+                for (int i = Children.size()-1;i<0; i--) {
+                    System.out.println("Here");
                     if (Children.get(i) == null)
                         continue;
                     int [] qq = Children.get(i).getState();
