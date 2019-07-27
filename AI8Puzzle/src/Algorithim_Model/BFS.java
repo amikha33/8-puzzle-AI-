@@ -15,10 +15,9 @@ public class BFS {
     
  
     
-    public static void search(int[] board) {
-        Node root = new Node(board);
+    public static void search(Node [] board) {
         Queue<Node> queue = new LinkedList<Node>();
-
+         Node root = new Node(board, null);
         queue.add(root);
 
         performSearch(queue);
@@ -63,7 +62,7 @@ public class BFS {
                     int [] qq = null;
                     // second parameter here adds the cost of the new node to
                     // the current cost total in the SearchNode
-                    Node newNode = new Node(new EightPuzzleState(qq));
+                    Node newNode = new Node(qq);
                     
                     if (!checkRepeats(newNode)) {
                         q.add(newNode);
