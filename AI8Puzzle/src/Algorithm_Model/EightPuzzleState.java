@@ -12,7 +12,7 @@ package Algorithm_Model;
 public class EightPuzzleState {
     private int manDist = 0;
  final int[] GOAL = new int[]
-            {1, 2, 3, 4, 5, 6, 7, 8, 0};
+            {0, 1, 2, 3, 4, 5, 6, 7, 8};
 
       int[] curBoard;
             // linearly search the array independent of the nested for's below

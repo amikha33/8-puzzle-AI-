@@ -32,7 +32,7 @@ public class Node {
     }
 
     public void generateChildren() {
-        children = new ArrayList<>();
+        children = new ArrayList<>(Arrays.asList(new Node[4]));
         int emptyTile = -1;
         for (int i = 0; i < 9; i++) {
             if (state[i] == 0) {
@@ -96,15 +96,23 @@ public class Node {
                 break;
 
         }
+        System.out.println("Size of new children is "+ newChildren.size());
         if (parent != null) {
             for (Node newChild : newChildren) {
                 if (newChild != null) {
                     if (!newChild.getState().equals(parent.getState())) {
-                        children.add(children.indexOf(newChild), newChild);
+                        children.set(newChildren.indexOf(newChild), newChild);
                     }
                 }
             }
+        }else {
+            for (Node newChild : newChildren) {
+                if (newChild != null) {
+                        children.set(newChildren.indexOf(newChild), newChild);
+                }
+            }
         }
+        System.out.println("Size of Children is " + children.size());
     }
 
     private Node moveUp(int emptyTile) {
