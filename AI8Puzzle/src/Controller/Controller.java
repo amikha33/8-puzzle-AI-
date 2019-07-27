@@ -9,7 +9,7 @@ public class Controller implements Initializable {
 
 
 
-    GameEngine gameEngine = GameEngine.getInstance();
+    //Controller.GameEngine gameEngine = Controller.GameEngine.getInstance();
 
     @Override
     public void initialize(URL url, ResourceBundle rb){

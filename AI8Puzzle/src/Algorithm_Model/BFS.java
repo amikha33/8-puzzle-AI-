@@ -1,9 +1,8 @@
-package Algorithim_Model;/*
+package Algorithm_Model;/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
@@ -11,17 +10,17 @@ import java.util.Stack;
  *
  * @author Aghapy
  */
-public class BFS {
+public class BFS implements Algorithm{
 
 
-
-    public static void search(int [] board,Node parent ) {
+    @Override
+    public void search(int [] board,Node parent ) {
         Queue<Node> queue = new LinkedList<Node>();
         Node root = new Node(board, null);
         queue.add(root);
 
         performSearch(queue);
-
+    }
         /*
          * Helper method to check to see if a SearchNode has already been evaluated.
          * Returns true if it has, false if it hasn't.
@@ -102,4 +101,6 @@ public class BFS {
             // This should never happen with our current puzzles.
             System.out.println("Error! No solution found!");
         }
-    }
+
+
+}
