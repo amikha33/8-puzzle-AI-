@@ -1,7 +1,7 @@
 package Controller;
 
 import Algorithm_Model.Algorithm;
-import Algorithm_Model.BFS;
+import Algorithm_Model.*;
 import javafx.fxml.Initializable;
 
 import java.net.URL;
@@ -15,7 +15,7 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb){
-        Algorithm myAlgorithm = new BFS();
+        Algorithm myAlgorithm = new DFS();
         int [] arr = {1,0,2,3,4,5,6,7,8};
         int [] arr2 = {1,2,3,4,5,6,7,0,8};
 

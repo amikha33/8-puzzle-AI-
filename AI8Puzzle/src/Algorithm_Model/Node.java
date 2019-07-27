@@ -96,7 +96,7 @@ public class Node {
                 break;
 
         }
-        System.out.println("Size of new children is "+ newChildren.size());
+        //System.out.println("Size of new children is "+ newChildren.size());
         if (parent != null) {
             for (Node newChild : newChildren) {
                 if (newChild != null) {
@@ -112,7 +112,7 @@ public class Node {
                 }
             }
         }
-        System.out.println("Size of Children is " + children.size());
+        //System.out.println("Size of Children is " + children.size());
     }
 
     private Node moveUp(int emptyTile) {
