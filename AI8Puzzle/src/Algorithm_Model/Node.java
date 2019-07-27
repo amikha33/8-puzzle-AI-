@@ -43,7 +43,7 @@ public class Node {
     }
 
     private void moveTile(int emptyTile) {
-        ArrayList<Node> newChildren = new ArrayList<>();
+        ArrayList<Node> newChildren = new ArrayList<>(Arrays.asList(new Node[4]));
         switch (emptyTile) {
             case 0:
                 newChildren.add(0, moveRight(emptyTile));
@@ -76,7 +76,6 @@ public class Node {
             case 5:
                 newChildren.add(1, moveLeft(emptyTile));
                 newChildren.add(2, moveUp(emptyTile));
-
                 newChildren.add(3, moveDown(emptyTile));
                 break;
 

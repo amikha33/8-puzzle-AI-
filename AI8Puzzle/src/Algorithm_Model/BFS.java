@@ -63,9 +63,10 @@ public class BFS implements Algorithm{
                             tempNode.getState()[3]+" "+tempNode.getState()[4]+" "+tempNode.getState()[5]+"\n"+
                             tempNode.getState()[6]+" "+tempNode.getState()[7]+" "+tempNode.getState()[8]+"\n"
                     );
-                    int[] tempSuccessors = tempNode.getState();
-                    for (int i = 0; i < tempSuccessors.length; i++) {
-                        int [] qq = tempSuccessors;
+                    tempNode.generateChildren();
+                    ArrayList<Node> Children = tempNode.getChildren();
+                    for (int i = 0; i < Children.size(); i++) {
+                        int [] qq = Children.get(i).getState();
 
                         // second parameter here adds the cost of the new node to
                         // the current cost total in the SearchNode
