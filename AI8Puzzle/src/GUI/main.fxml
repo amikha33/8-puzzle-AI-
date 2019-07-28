@@ -10,17 +10,16 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Controller">
    <children>
       <Button layoutX="96.0" layoutY="365.0" mnemonicParsing="false" text="Next Step" />
-      <TextField layoutX="64.0" layoutY="60.0" />
-      <ComboBox layoutX="63.0" layoutY="98.0" prefWidth="150.0" />
-      <ComboBox layoutX="64.0" layoutY="140.0" prefWidth="150.0" />
+      <TextField fx:id="inputState" layoutX="64.0" layoutY="60.0" />
+      <ComboBox fx:id="algorithmSelector" layoutX="63.0" layoutY="98.0" onAction="#selectAlgorithm" prefWidth="150.0" />
+      <ComboBox fx:id="heuristicSelector" layoutX="64.0" layoutY="140.0" onAction="#SelectHeuristic" prefWidth="150.0" />
       <Label layoutX="83.0" layoutY="43.0" text="Initial Game State" />
       <Label layoutX="13.0" layoutY="102.0" text="Method" />
-      <Button layoutX="229.0" layoutY="60.0" mnemonicParsing="false" text="Generate Random" />
-      <ListView layoutX="377.0" layoutY="165.0" prefHeight="200.0" prefWidth="200.0" />
+      <Button layoutX="228.0" layoutY="60.0" mnemonicParsing="false" onAction="#generateBoard" text="Generate Random" />
+      <ListView fx:id="outputList" layoutX="377.0" layoutY="165.0" prefHeight="200.0" prefWidth="200.0" />
       <Label layoutX="11.0" layoutY="144.0" text="Heuristic" />
       <Label layoutX="432.0" layoutY="136.0" text="Solution Steps" />
       <GridPane layoutX="39.0" layoutY="188.0" prefHeight="154.0" prefWidth="200.0">
@@ -35,5 +34,8 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
       </GridPane>
+      <Button layoutX="228.0" layoutY="140.0" mnemonicParsing="false" onAction="#solve" text="Solve" />
+      <Label layoutX="377.0" layoutY="52.0" text="Depth" />
+      <Label layoutX="377.0" layoutY="77.0" text="Cost to path" />
    </children>
 </AnchorPane>

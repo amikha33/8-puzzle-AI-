@@ -1,9 +1,13 @@
-package GUI;/*
+//package GUI;
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 
+import Algorithm_Model.Algorithm;
+import Algorithm_Model.BFS;
+import Algorithm_Model.Node;
 import Controller.GameEngine;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -15,8 +19,8 @@ public class AI8Puzzle extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        GameEngine gameEngine = GameEngine.getInstance();
-        Parent root = FXMLLoader.load(getClass().getResource("main.fxml"));
+     //   GameEngine gameEngine = GameEngine.getInstance();
+        Parent root = FXMLLoader.load(getClass().getResource("GUI/main.fxml"));
         Scene scene = new Scene(root);//, 500, 500);
         primaryStage.setTitle("8 Puzzle");
         primaryStage.setScene(scene);
@@ -28,7 +32,6 @@ public class AI8Puzzle extends Application {
     public static void main(String[] args) {
 
         launch(args);
-
 
     }
 
