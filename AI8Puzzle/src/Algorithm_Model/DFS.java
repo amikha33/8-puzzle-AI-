@@ -23,6 +23,23 @@ public class DFS implements Algorithm{
 
         return null;
     }
+
+    @Override
+    public int getExploredNoOfNodes() {
+        return 0;
+    }
+
+
+    @Override
+    public int getMaxDepth() {
+        return 0;
+    }
+
+    @Override
+    public int getCostPath() {
+        return 0;
+    }
+
     /*
      * Helper method to check to see if a SearchNode has already been evaluated.
      * Returns true if it has, false if it hasn't.
