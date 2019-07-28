@@ -23,4 +23,11 @@ public class A_Star implements Algorithm{
     public int getCostPath() {
         return 0;
     }
+
+
+
+
+
+
+
 }

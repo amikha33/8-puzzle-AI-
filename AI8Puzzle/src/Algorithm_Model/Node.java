@@ -5,12 +5,13 @@ package Algorithm_Model;/*
  */
 
 
+import utility.Utility;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
-/**
- * @author Aghapy
- */
+
+
 public class Node {
 
     /**
@@ -117,33 +118,29 @@ public class Node {
 
     private Node moveUp(int emptyTile) {
         int[] newState = state.clone();
-        swapTwoNosInArray(newState, emptyTile, emptyTile - 3);
+        Utility.swapTwoNosInArray(newState, emptyTile, emptyTile - 3);
         return new Node(newState, this);
     }
 
     private Node moveDown(int emptyTile) {
         int[] newState = state.clone();
-        swapTwoNosInArray(newState, emptyTile, emptyTile + 3);
+        Utility.swapTwoNosInArray(newState, emptyTile, emptyTile + 3);
         return new Node(newState, this);
     }
 
     private Node moveRight(int emptyTile) {
         int[] newState = state.clone();
-        swapTwoNosInArray(newState, emptyTile, emptyTile + 1);
+        Utility.swapTwoNosInArray(newState, emptyTile, emptyTile + 1);
         return new Node(newState, this);
     }
 
     private Node moveLeft(int emptyTile) {
         int[] newState = state.clone();
-        swapTwoNosInArray(newState, emptyTile, emptyTile - 1);
+        Utility.swapTwoNosInArray(newState, emptyTile, emptyTile - 1);
         return new Node(newState, this);
     }
 
-    private void swapTwoNosInArray(int[] array, int firstIndex, int secondIndex) {
-        int buffer = array[firstIndex];
-        array[firstIndex] = array[secondIndex];
-        array[secondIndex] = buffer;
-    }
+
 
     public int[] getState() {
         return state;
@@ -174,4 +171,12 @@ public class Node {
       EightPuzzleState n = new EightPuzzleState(state);
 
         return Arrays.equals(n.curBoard, n.GOAL);}
+
+    @Override
+    public String toString() {
+        return "Node{" +
+                "state=" + Arrays.toString(state) +
+                ", parent=" + Arrays.toString(parent.getState()) +
+                '}';
+    }
 }
