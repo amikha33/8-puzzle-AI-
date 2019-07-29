@@ -7,6 +7,6 @@ public interface Algorithm {
 
     public ArrayList<Node> search(int [] board, Node parent);
     public int getExploredNoOfNodes(Stack<Node> solutionPath);
-    public int getMaxDepth();
+    public int getMaxDepth(Stack<Node> solutionPath, int [] goal);
     public int getCostPath();
 }

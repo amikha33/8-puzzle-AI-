@@ -25,7 +25,7 @@ public class DFS implements Algorithm{
     }
 
     @Override
-    public int getExploredNoOfNodes() {
+    public int getExploredNoOfNodes(Stack<Node> solutionPath) {
         return 0;
     }
 

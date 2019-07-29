@@ -3,6 +3,7 @@ package Algorithm_Model;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
 public class A_Star implements Algorithm{
 
@@ -17,8 +18,8 @@ public class A_Star implements Algorithm{
     }
 
     @Override
-    public int getExploredNoOfNodes(int [] goal) {
-        boolean solutionExists = false;
+    public int getExploredNoOfNodes(Stack<Node> solutionPath) {
+       // boolean solutionExists = false;
 
         return 0;
 
