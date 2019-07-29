@@ -2,6 +2,8 @@ package Controller;
 
 import Algorithm_Model.Algorithm;
 import Algorithm_Model.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -16,6 +18,18 @@ import java.util.ResourceBundle;
 public class Controller implements Initializable {
 
 
+    @FXML
+    private TextField inputState;
+
+    @FXML
+    private ComboBox<String> algorithmSelector;
+
+    @FXML
+    private ComboBox<String> heuristicSelector;
+
+    @FXML
+    private ListView<String> outputList;
+
 
     //Controller.GameEngine gameEngine = Controller.GameEngine.getInstance();
     Algorithm myAlgorithm;
@@ -26,20 +40,21 @@ public class Controller implements Initializable {
 //        int [] arr2 = {1,2,3,4,5,6,7,0,8};
 //
 //        myAlgorithm.search(arr,null);
+        ObservableList<String> options =
+                FXCollections.observableArrayList(
+                        "A*",
+                        "BFS",
+                        "DFS"
+                );
+        algorithmSelector.setItems(options);
+        ObservableList<String> heuristic =
+                FXCollections.observableArrayList(
+                        "Manhattan",
+                        "Euclidean"
+                );
 
+        heuristicSelector.setItems(heuristic);
     }
-
-    @FXML
-    private TextField inputState;
-
-    @FXML
-    private ComboBox<?> algorithmSelector;
-
-    @FXML
-    private ComboBox<?> heuristicSelector;
-
-    @FXML
-    private ListView<?> outputList;
 
     @FXML
     void SelectHeuristic(ActionEvent event) {
@@ -53,7 +68,14 @@ public class Controller implements Initializable {
 
     @FXML
     void selectAlgorithm(ActionEvent event) {
-
+        System.out.println("here");
+            if (algorithmSelector.getValue().equalsIgnoreCase("BFS"))
+                myAlgorithm = new BFS();
+            if (algorithmSelector.getValue().equalsIgnoreCase("DFS"))
+                myAlgorithm = new DFS();
+            else{
+                myAlgorithm = new A_Star();
+            }
     }
 
     @FXML
@@ -61,6 +83,7 @@ public class Controller implements Initializable {
         myAlgorithm= new BFS();
         int [] arr = {1,2,5,3,4,0,6,7,8};
         ArrayList<Node>Path = myAlgorithm.search(arr,null);
+        System.out.println("path is "+Path);
         for (Node i:
              Path) {
             System.out.println(i.getState()[0]+" "+i.getState()[1]+" "+i.getState()[2]+"\n"+
