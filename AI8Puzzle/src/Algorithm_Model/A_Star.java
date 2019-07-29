@@ -3,6 +3,7 @@ package Algorithm_Model;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.PriorityQueue;
+import java.util.Stack;
 
 public class A_Star implements Algorithm {
 
@@ -50,6 +51,16 @@ public class A_Star implements Algorithm {
         return null;
     }
 
+    @Override
+    public int getExploredNoOfNodes(Stack<Node> solutionPath) {
+        return 0;
+    }
+
+    @Override
+    public int getMaxDepth(Stack<Node> solutionPath, int[] goal) {
+        return 0;
+    }
+
     private boolean containing(GreedyNode node) {
         for (GreedyNode test : frontierList) {
             if (java.util.Arrays.equals(test.state, node.state)) {
@@ -85,16 +96,6 @@ public class A_Star implements Algorithm {
         this.path = path;
     }
 
-    @Override
-    public int getExploredNoOfNodes() {
-        return 0;
-    }
-
-
-    @Override
-    public int getMaxDepth() {
-        return 0;
-    }
 
     @Override
     public int getCostPath() {
