@@ -37,6 +37,8 @@ public class Node {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+
+
     public void generateChildren() {
         children = new ArrayList<>(Arrays.asList(new Node[4]));
         int emptyTile = -1;
@@ -150,6 +152,7 @@ public class Node {
     public int[] getState() {
         return state;
     }
+
 
     public void setState(int[] state) {
         this.state = state;

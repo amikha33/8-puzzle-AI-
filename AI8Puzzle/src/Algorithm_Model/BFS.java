@@ -23,20 +23,42 @@ public class BFS implements Algorithm{
     }
 
     @Override
-    public int getExploredNoOfNodes() {
-        return 0;
+    public int getExploredNoOfNodes(Stack<Node> solutionPath) {
+        //number of nodes
+        Stack<Node> s = solutionPath;
+        int pathLength =0;
+        //getPath solution paths and Stack S :"D
+
+        while(s.isEmpty() == false){
+            System.out.println(s.pop());
+            pathLength ++;
+        }
+        return pathLength;
     }
 
 
 
     @Override
-    public int getMaxDepth() {
-        return 0;
+    public int getMaxDepth(Stack<Node> solutionPath , int [] goal) {
+        int maxDepth=0;
+        for (int i = 0; i <solutionPath.size(); i++) {
+
+
+                Node popedChild = solutionPath.pop();
+                if (popedChild.equals(goal)) {
+                    break;
+                }
+                maxDepth = maxDepth + 1;
+
+        }
+        return maxDepth;
     }
 
     @Override
     public int getCostPath() {
+        //no  Cost int BFS
         return 0;
+
     }
 
     /*
@@ -64,7 +86,7 @@ public class BFS implements Algorithm{
          *
          * @param q - A SearchNode queue to be populated and searched
          */
-        public static ArrayList<Node> performSearch(Queue<Node> q) {
+        public ArrayList<Node> performSearch(Queue<Node> q) {
             int searchCount = 1; // counter for number of iterations
             ArrayList<Node> frontierList = new ArrayList();
 
@@ -132,6 +154,11 @@ public class BFS implements Algorithm{
                     // The size of the stack before looping through and emptying it.
                     int loopSize = solutionPath.size();
                     Collections.reverse(solutionPath);
+                     int[] arr = new int[]
+                            {0, 1, 2, 3, 4, 5, 6, 7, 8};
+
+                    getMaxDepth(solutionPath,arr);
+
                     return new ArrayList(solutionPath);
 
                 }

@@ -33,6 +33,7 @@ public class AI8Puzzle extends Application {
 
         launch(args);
 
+
     }
 
 }

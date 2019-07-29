@@ -24,15 +24,35 @@ public class DFS implements Algorithm{
         return null;
     }
 
-    @Override
-    public int getExploredNoOfNodes() {
-        return 0;
+    public int getExploredNoOfNodes(Stack<Node> solutionPath) {
+        //number of nodes
+        Stack<Node> s = solutionPath;
+        int pathLength =0;
+        //getPath solution paths and Stack S :"D
+
+        while(s.isEmpty() == false){
+            System.out.println(s.pop());
+            pathLength ++;
+        }
+        return pathLength;
     }
 
 
+
     @Override
-    public int getMaxDepth() {
-        return 0;
+    public int getMaxDepth(Stack<Node> solutionPath , int [] goal) {
+        int maxDepth=0;
+        for (int i = 0; i <solutionPath.size(); i++) {
+
+
+            Node popedChild = solutionPath.pop();
+            if (popedChild.equals(goal)) {
+                break;
+            }
+            maxDepth = maxDepth + 1;
+
+        }
+        return maxDepth;
     }
 
     @Override
