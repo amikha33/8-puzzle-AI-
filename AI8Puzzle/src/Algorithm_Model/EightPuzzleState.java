@@ -26,9 +26,12 @@ public class EightPuzzleState {
            setOutOfPlace();
            setManDist();
         }
-     
-     
-     
+
+
+
+
+
+
         private void setOutOfPlace() {
         for (int i = 0; i < curBoard.length; i++) {
             if (curBoard[i] != GOAL[i]) {

@@ -44,13 +44,12 @@ public class BFS implements Algorithm{
         for (int i = 0; i <solutionPath.size(); i++) {
 
 
-            while (solutionPath.isEmpty()) {
                 Node popedChild = solutionPath.pop();
                 if (popedChild.equals(goal)) {
                     break;
                 }
                 maxDepth = maxDepth + 1;
-            }
+
         }
         return maxDepth;
     }
@@ -155,9 +154,11 @@ public class BFS implements Algorithm{
                     // The size of the stack before looping through and emptying it.
                     int loopSize = solutionPath.size();
                     Collections.reverse(solutionPath);
-                    EightPuzzleState myGoal = new EightPuzzleState();
+                     int[] arr = new int[]
+                            {0, 1, 2, 3, 4, 5, 6, 7, 8};
 
-                    getMaxDepth(solutionPath, myGoal.GOAL);
+                    getMaxDepth(solutionPath,arr);
+
                     return new ArrayList(solutionPath);
 
                 }
