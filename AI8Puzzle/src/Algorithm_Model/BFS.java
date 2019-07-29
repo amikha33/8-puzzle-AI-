@@ -17,7 +17,7 @@ public class BFS implements Algorithm{
         Node root = new Node(board, null);
         queue.add(root);
 
-        performSearch(queue);
+        //performSearch(queue);
 
         return performSearch(queue);
     }
@@ -157,8 +157,8 @@ public class BFS implements Algorithm{
                      int[] arr = new int[]
                             {0, 1, 2, 3, 4, 5, 6, 7, 8};
 
-                    getMaxDepth(solutionPath,arr);
-
+                   // getMaxDepth(solutionPath,arr);
+                    System.out.println("sent list");
                     return new ArrayList(solutionPath);
 
                 }
@@ -173,6 +173,7 @@ public class BFS implements Algorithm{
                     //System.exit(0);
                 }*/
             }
+            System.out.println("Shouldn't reach this statment");
             return null;
             // This should never happen with our current puzzles.
             //System.out.println("Error! No solution found!");

@@ -58,6 +58,11 @@ public class Controller implements Initializable {
 
     @FXML
     void SelectHeuristic(ActionEvent event) {
+        if (heuristicSelector.getValue().equalsIgnoreCase("Manhattan")) {
+            myAlgorithm = new A_Star(new Manhattan());
+        }else if(heuristicSelector.getValue().equalsIgnoreCase("Euclidean")){
+            myAlgorithm = new A_Star(new Euclidean());
+        }
 
     }
 
@@ -69,28 +74,50 @@ public class Controller implements Initializable {
     @FXML
     void selectAlgorithm(ActionEvent event) {
         System.out.println("here");
-            if (algorithmSelector.getValue().equalsIgnoreCase("BFS"))
+            if (algorithmSelector.getValue().equalsIgnoreCase("BFS")) {
                 myAlgorithm = new BFS();
-            if (algorithmSelector.getValue().equalsIgnoreCase("DFS"))
+                System.out.println("Bfs it is");
+            }
+            else if (algorithmSelector.getValue().equalsIgnoreCase("DFS")) {
                 myAlgorithm = new DFS();
+            }
             else{
-                myAlgorithm = new A_Star();
+                if (heuristicSelector.getValue().equalsIgnoreCase("Manhattan")) {
+                    myAlgorithm = new A_Star(new Manhattan());
+                }else if(heuristicSelector.getValue().equalsIgnoreCase("Euclidean")){
+                    myAlgorithm = new A_Star(new Euclidean());
+                }else {
+                    myAlgorithm = new A_Star(new Manhattan());
+                }
+                System.out.println("A* selected" );
             }
     }
 
     @FXML
     void solve(ActionEvent event) {
-        myAlgorithm= new BFS();
-        int [] arr = {1,2,5,3,4,0,6,7,8};
+        //myAlgorithm= new BFS();
+        outputList.getItems().removeAll();
+
+        String test = inputState.getText();
+        String[] integerStrings = test.split(" ");
+        int[] arr = new int[integerStrings.length];
+        for (int i = 0; i < arr.length; i++){
+            arr[i] = Integer.parseInt(integerStrings[i]);
+        }
         ArrayList<Node>Path = myAlgorithm.search(arr,null);
-        System.out.println("path is "+Path);
+        System.out.println("path is "+Path.size());
         for (Node i:
              Path) {
+            System.out.println("Depth is " + i.getDepth());
+
             System.out.println(i.getState()[0]+" "+i.getState()[1]+" "+i.getState()[2]+"\n"+
                     i.getState()[3]+" "+i.getState()[4]+" "+i.getState()[5]+"\n"+
                     i.getState()[6]+" "+i.getState()[7]+" "+i.getState()[8]+"\n"
             );
-            System.out.println(i.getDepth());
+            outputList.getItems().add("Depth is " + i.getDepth()+"\n"+i.getState()[0]+" "+i.getState()[1]+" "+i.getState()[2]+"\n"+
+                    i.getState()[3]+" "+i.getState()[4]+" "+i.getState()[5]+"\n"+
+                    i.getState()[6]+" "+i.getState()[7]+" "+i.getState()[8]+"\n");
         }
+        outputList.getItems().add("Reached Goal");
     }
 }
