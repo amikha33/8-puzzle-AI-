@@ -3,6 +3,12 @@ package Algorithm_Model;
 import java.util.ArrayList;
 
 public class A_Star implements Algorithm{
+
+    Heuristic heuristicType;
+
+
+
+
     @Override
     public ArrayList<Node> search(int[] board, Node parent) {
         return null;
@@ -25,9 +31,11 @@ public class A_Star implements Algorithm{
     }
 
 
+    public Heuristic getHeuristicType() {
+        return heuristicType;
+    }
 
-
-
-
-
+    public void setHeuristicType(Heuristic heuristicType) {
+        this.heuristicType = heuristicType;
+    }
 }
