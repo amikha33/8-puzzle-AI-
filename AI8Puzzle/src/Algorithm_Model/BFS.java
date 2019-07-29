@@ -23,8 +23,16 @@ public class BFS implements Algorithm{
     }
 
     @Override
-    public int getExploredNoOfNodes() {
-        return 0;
+    public int getExploredNoOfNodes(Stack<Node> solutionPath) {
+        Stack<Node> s = solutionPath;
+        int pathLength =0;
+        //getPath solution paths and Stack S :"D
+
+        while(s.isEmpty() == false){
+            System.out.println(s.pop());
+            pathLength ++;
+        }
+        return pathLength;
     }
 
 
