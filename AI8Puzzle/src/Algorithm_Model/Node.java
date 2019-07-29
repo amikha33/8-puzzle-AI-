@@ -19,7 +19,7 @@ public class Node {
      * childre[3]).
      *
      */
-    private int[] state = new int[9];
+    protected int[] state = new int[9];
     private ArrayList<Node> children;
     private Node parent;
     private int depth;
@@ -121,25 +121,25 @@ public class Node {
         //System.out.println("Size of Children is " + children.size());
     }
 
-    private Node moveUp(int emptyTile) {
+    protected Node moveUp(int emptyTile) {
         int[] newState = state.clone();
         Utility.swapTwoNosInArray(newState, emptyTile, emptyTile - 3);
         return new Node(newState, this);
     }
 
-    private Node moveDown(int emptyTile) {
+    protected Node moveDown(int emptyTile) {
         int[] newState = state.clone();
         Utility.swapTwoNosInArray(newState, emptyTile, emptyTile + 3);
         return new Node(newState, this);
     }
 
-    private Node moveRight(int emptyTile) {
+    protected Node moveRight(int emptyTile) {
         int[] newState = state.clone();
         Utility.swapTwoNosInArray(newState, emptyTile, emptyTile + 1);
         return new Node(newState, this);
     }
 
-    private Node moveLeft(int emptyTile) {
+    protected Node moveLeft(int emptyTile) {
         int[] newState = state.clone();
         Utility.swapTwoNosInArray(newState, emptyTile, emptyTile - 1);
         return new Node(newState, this);
