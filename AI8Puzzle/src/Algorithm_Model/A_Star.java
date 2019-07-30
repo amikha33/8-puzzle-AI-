@@ -1,6 +1,5 @@
 package Algorithm_Model;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.PriorityQueue;
 import java.util.Stack;
@@ -42,7 +41,7 @@ public class A_Star implements Algorithm {
             for (Node node : state.getChildren()) {
                 if (node != null) {
                     node = new GreedyNode(node.state, state);
-                    if (!containedInFroniter((GreedyNode) node) && !containedInExplored((GreedyNode) node)) {
+                    if (!containedInFrontier((GreedyNode) node) && !containedInExplored((GreedyNode) node)) {
                         calculateWeight((GreedyNode) node);
                         frontier.add((GreedyNode) node);
                         frontierList.add((GreedyNode) node);
@@ -77,7 +76,7 @@ public class A_Star implements Algorithm {
         return 0;
     }
 
-    private boolean containedInFroniter(GreedyNode node) {
+    private boolean containedInFrontier(GreedyNode node) {
         for (GreedyNode test : frontierList) {
             if (java.util.Arrays.equals(test.state, node.state)) {
                 return true;
