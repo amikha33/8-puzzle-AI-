@@ -14,6 +14,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
+import java.util.Stack;
 
 public class AI8Puzzle extends Application {
 
@@ -31,7 +32,7 @@ public class AI8Puzzle extends Application {
     public static void main(String[] args) {
 
         launch(args);
-       /** Algorithm algorithm = new A_Star(new Euclidean());
+        /**Algorithm algorithm = new A_Star(new Manhattan());
         int[] x = {1, 2, 0, 3, 4, 5, 6, 7, 8};
         ArrayList<Node> path = algorithm.search(x, null);
 
@@ -43,7 +44,10 @@ public class AI8Puzzle extends Application {
             System.out.println();
             System.out.println();
 
-        }**/
+        }
+         Stack<Node> stack = new Stack<>();
+         System.out.println("Max Depth: " + algorithm.getMaxDepth(stack,new int[]{0,1,2,3,4,5,6,7,8}) + "      path cost: "+algorithm.getCostPath()+"      number of explored nodes: " + algorithm.getExploredNoOfNodes(stack));
+         **/
 
     }
 

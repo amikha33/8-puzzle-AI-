@@ -15,6 +15,7 @@ public class A_Star implements Algorithm {
     private ArrayList<GreedyNode> frontierList;
     private ArrayList<GreedyNode> explored;
     private ArrayList<Node> path;
+    private int pathCost;
 
 
     public A_Star(Heuristic heuristicType) {
@@ -35,6 +36,7 @@ public class A_Star implements Algorithm {
             explored.add(state);
 
             if (java.util.Arrays.equals(state.state,new int[]{0,1,2,3,4,5,6,7,8})) {
+                pathCost=state.getCost();
                 return pathToGoal(state);
             }
             state.generateChildren();
@@ -68,12 +70,21 @@ public class A_Star implements Algorithm {
 
     @Override
     public int getExploredNoOfNodes(Stack<Node> solutionPath) {
-        return 0;
+        return explored.size();
     }
 
     @Override
     public int getMaxDepth(Stack<Node> solutionPath, int[] goal) {
-        return 0;
+        int maxDepth=0;
+        for (GreedyNode node:frontierList) {
+            if (node.getCost()>maxDepth)
+                maxDepth=node.getCost();
+        }
+        for (GreedyNode node:explored) {
+            if (node.getCost()>maxDepth)
+                maxDepth=node.getCost();
+        }
+        return maxDepth;
     }
 
     private boolean containedInFrontier(GreedyNode node) {
@@ -133,7 +144,7 @@ public class A_Star implements Algorithm {
 
     @Override
     public int getCostPath() {
-        return 0;
+        return pathCost;
     }
 
 
