@@ -45,6 +45,7 @@ public class Node {
         for (int i = 0; i < 9; i++) {
             if (state[i] == 0) {
                 emptyTile = i;
+                break;
             }
         }
         moveTile(emptyTile);
@@ -183,11 +184,5 @@ public class Node {
 
         return Arrays.equals(n.curBoard, n.GOAL);}
 
-    @Override
-    public String toString() {
-        return "Node{" +
-                "state=" + Arrays.toString(state) +
-                ", parent=" + Arrays.toString(parent.getState()) +
-                '}';
-    }
+
 }

@@ -4,6 +4,8 @@ package Algorithm_Model;
 import utility.Utility;
 
 /**
+ * @author Harraz21
+ * <p>
  * weight = cost + heuristic
  **/
 
@@ -39,7 +41,6 @@ public class GreedyNode extends Node implements Comparable<GreedyNode> {
     public double getWeight() {
         return weight;
     }
-
 
 
     public void setWeight(double weight) {

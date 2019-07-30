@@ -2,6 +2,11 @@ package Algorithm_Model;
 
 import utility.Utility;
 
+
+/**
+ * @author Harraz21
+ */
+
 public class Euclidean implements Heuristic {
     @Override
     public double getHeuristic(int[] state) {

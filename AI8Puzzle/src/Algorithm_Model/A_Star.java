@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import java.util.PriorityQueue;
 import java.util.Stack;
 
+/**
+ * @author Harraz21
+ */
 public class A_Star implements Algorithm {
 
     private GreedyNode initialState;
@@ -21,7 +24,7 @@ public class A_Star implements Algorithm {
 
     @Override
     public ArrayList<Node> search(int[] board, Node parent) {
-        initialState = (GreedyNode) new Node(board, null);
+        initialState =  new GreedyNode(board, null);
         frontier = new PriorityQueue<>();
         frontierList = new ArrayList<>();
         frontier.add(initialState);
@@ -32,22 +35,35 @@ public class A_Star implements Algorithm {
             frontierList.remove(state);
             explored.add(state);
 
-            if (state.isGoal()) {
+            if (java.util.Arrays.equals(state.state,new int[]{0,1,2,3,4,5,6,7,8})) {
                 return pathToGoal(state);
             }
             state.generateChildren();
             for (Node node : state.getChildren()) {
-                node = (GreedyNode) new GreedyNode(node.state, state);
-                if (!frontier.contains(node) && explored.contains(node)) {
-                    calculateWeight((GreedyNode) node);
-                    frontier.add((GreedyNode) node);
-                } else if (frontier.contains(node)) {
-
+                if (node != null) {
+                    node = new GreedyNode(node.state, state);
+                    if (!containedInFroniter((GreedyNode) node) && !containedInExplored((GreedyNode) node)) {
+                        calculateWeight((GreedyNode) node);
+                        frontier.add((GreedyNode) node);
+                        frontierList.add((GreedyNode) node);
+                    } else {
+                        for (GreedyNode test : frontierList) {
+                            if (java.util.Arrays.equals(test.state, node.state)) {
+                                calculateWeight((GreedyNode) node);
+                                if (test.getWeight() > ((GreedyNode) node).getWeight()) {
+                                    frontierList.remove(test);
+                                    frontier.remove(test);
+                                    frontier.add((GreedyNode) node);
+                                    frontierList.add((GreedyNode) node);
+                                }
+                                break;
+                            }
+                        }
+                    }
                 }
             }
-
-
         }
+
         return null;
     }
 
@@ -61,8 +77,16 @@ public class A_Star implements Algorithm {
         return 0;
     }
 
-    private boolean containing(GreedyNode node) {
+    private boolean containedInFroniter(GreedyNode node) {
         for (GreedyNode test : frontierList) {
+            if (java.util.Arrays.equals(test.state, node.state)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    private boolean containedInExplored(GreedyNode node) {
+        for (GreedyNode test : explored) {
             if (java.util.Arrays.equals(test.state, node.state)) {
                 return true;
             }
@@ -71,13 +95,24 @@ public class A_Star implements Algorithm {
     }
 
     private ArrayList<Node> pathToGoal(GreedyNode state) {
-        ArrayList<Node> pathToGoal = new ArrayList<>();
-        path = pathToGoal;
-        return pathToGoal;
+        Stack<Node> pathToGoal = new Stack<>();
+        path =new ArrayList<>();
+        Node node=state;
+        pathToGoal.push(state);
+        while (node.getParent()!=null)
+        {
+            pathToGoal.push(node.getParent());
+            node=node.getParent();
+        }
+        int size = pathToGoal.size();
+        for (int i = size ; i > 0 ; i--) {
+            path.add(pathToGoal.pop());
+        }
+        return path;
     }
 
     private void calculateWeight(GreedyNode greedyNode) {
-        greedyNode.setWeight(heuristicType.getHeuristic(greedyNode.getState()));
+        greedyNode.setWeight(heuristicType.getHeuristic(greedyNode.getState()) + greedyNode.getCost());
     }
 
     public ArrayList<GreedyNode> getExplored() {
