@@ -33,6 +33,7 @@ public class BFS implements Algorithm{
             System.out.println(s.pop());
             pathLength ++;
         }
+        System.out.println("paths lengths"+ pathLength);
         return pathLength;
     }
 
@@ -50,6 +51,7 @@ public class BFS implements Algorithm{
                 }
                 maxDepth = maxDepth + 1;
 
+            System.out.println("Max Depth in BFS" + maxDepth);
         }
         return maxDepth;
     }
@@ -156,9 +158,9 @@ public class BFS implements Algorithm{
                     Collections.reverse(solutionPath);
                      int[] arr = new int[]
                             {0, 1, 2, 3, 4, 5, 6, 7, 8};
-
-                   // getMaxDepth(solutionPath,arr);
-                    System.out.println("sent list");
+                     getMaxDepth(solutionPath,arr);
+                     int found= searchCount-1;
+                    System.out.println("Search path count " +found);                    System.out.println("sent list");
                     return new ArrayList(solutionPath);
 
                 }

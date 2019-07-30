@@ -119,8 +119,6 @@ public class DFS implements Algorithm{
 //                            newNode.getState()[6]+" "+newNode.getState()[7]+" "+newNode.getState()[8]+"\n"
 //                    );
                     if (!checkRepeats(newNode)) {
-                       // System.out.println("Added Child to Queue");
-                        // q.add(newNode);
                     }
                 }
                 searchCount++;
