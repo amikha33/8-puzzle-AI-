@@ -125,10 +125,18 @@ public class A_Star implements Algorithm {
         greedyNode.setWeight(heuristicType.getHeuristic(greedyNode.getState()) + greedyNode.getCost());
     }
 
-    public ArrayList<GreedyNode> getExplored() {
+    public ArrayList<GreedyNode> getExploredgreedy() {
         return explored;
     }
-
+    @Override
+    public ArrayList<Node> getExplored(){
+        ArrayList<Node> x = new ArrayList<Node>();
+        for (GreedyNode i:
+                explored) {
+            x.add(i);
+        }
+        return x;
+    }
     public void setExplored(ArrayList<GreedyNode> explored) {
         this.explored = explored;
     }

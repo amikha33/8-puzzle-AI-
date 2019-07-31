@@ -9,4 +9,6 @@ public interface Algorithm {
     public int getExploredNoOfNodes(Stack<Node> solutionPath);
     public int getMaxDepth(Stack<Node> solutionPath, int [] goal);
     public int getCostPath();
+
+    public ArrayList<Node> getExplored();
 }

@@ -3,6 +3,7 @@ package Algorithm_Model;/*
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+import java.lang.reflect.Array;
 import java.util.*;
 
 /**
@@ -10,7 +11,11 @@ import java.util.*;
  * @author Aghapy
  */
 public class DFS implements Algorithm{
-
+    ArrayList<Node> frontierList;
+    @Override
+    public ArrayList<Node> getExplored(){
+        return frontierList;
+    }
     @Override
     public ArrayList<Node> search(int [] board, Node parent ) {
         Stack<Node> queue = new Stack<Node>();
@@ -91,7 +96,7 @@ public class DFS implements Algorithm{
      */
     public ArrayList<Node> performSearch(Stack <Node> q) {
         int searchCount = 1; // counter for number of iterations
-        ArrayList<Node> frontierList = new ArrayList();
+        frontierList = new ArrayList();
 
         while (!q.isEmpty()) // while the queue is not empty
         {
@@ -107,6 +112,7 @@ public class DFS implements Algorithm{
 //                    );
                 tempNode.generateChildren();
                 ArrayList<Node> Children = tempNode.getChildren();
+                Collections.reverse(Children);
                 //System.out.println(Children.size());
                 for (int i = 0; i < Children.size(); i++) {
                     if (Children.get(i) == null)

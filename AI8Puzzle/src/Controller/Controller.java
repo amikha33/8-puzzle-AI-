@@ -134,5 +134,8 @@ public class Controller implements Initializable {
             }
 
         outputList.getItems().add("Reached Goal");
+
+        exploredList.getItems().clear();
+
     }
 }
