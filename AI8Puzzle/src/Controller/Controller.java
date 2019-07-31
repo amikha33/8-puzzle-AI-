@@ -13,6 +13,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 
+import java.awt.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -114,6 +115,53 @@ public class Controller implements Initializable {
             inputState.setText("");
     }
 
+
+    void move(int[] state){
+        int x = 0;
+        int y = 0;
+        for (int i = 0; i <9 ; i++) {
+            ImageView myImageView = null;
+            switch (i){
+                case 0:
+                    myImageView = zero;
+                    break;
+                case 1:
+                    myImageView = one;
+                    break;
+                case 2:
+                    myImageView = two;
+                    break;
+                case 3:
+                    myImageView = three;
+                    break;
+                case 4:
+                    myImageView = four;
+                    break;
+                case 5:
+                    myImageView = five;
+                    break;
+                case 6:
+                    myImageView = six;
+                    break;
+                case 7:
+                    myImageView = seven;
+                    break;
+                case 8:
+                    myImageView = eight;
+                    break;
+                 default:
+                     System.out.println("Switch case failed");
+                    break;
+            }
+            myImageView.setX(ref.getLayoutX() - 30 + x * 5);
+            myImageView.setY(ref.getLayoutY()-175+ y * 3);
+            x++;
+            if (x>2){
+                y++;
+                x =0;
+            }
+        }
+    }
     @FXML
     void selectAlgorithm(ActionEvent event) {
         System.out.println("here");
@@ -193,6 +241,7 @@ public class Controller implements Initializable {
                                 i.getState()[3]+" "+i.getState()[4]+" "+i.getState()[5]+"\n"+
                                 i.getState()[6]+" "+i.getState()[7]+" "+i.getState()[8]+"\n");
             }
+            move(i.getState());
         }
 
         depthLabel.setText(Integer.toString( myAlgorithm.getSearchDepth()));
