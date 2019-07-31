@@ -11,6 +11,7 @@ import java.util.*;
  * @author Aghapy
  */
 public class DFS implements Algorithm{
+    int searchDepth = 0;
     ArrayList<Node> frontierList;
     @Override
     public ArrayList<Node> getExplored(){
@@ -67,6 +68,11 @@ public class DFS implements Algorithm{
         //no  Cost int DFS
         return 0;
 
+    }
+
+    @Override
+    public int getSearchDepth() {
+        return searchDepth;
     }
 
     /*
@@ -165,7 +171,7 @@ public class DFS implements Algorithm{
                 Collections.reverse(solutionPath);
                 int[] arr = new int[]
                         {0, 1, 2, 3, 4, 5, 6, 7, 8};
-                getMaxDepth(solutionPath,arr);
+                searchDepth = getMaxDepth(solutionPath,arr);
                 int found= searchCount-1;
                 System.out.println("Search path count " +found);
                 System.out.println("sent list");

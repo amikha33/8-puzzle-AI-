@@ -8,8 +8,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -17,7 +19,35 @@ import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
 
+    @FXML
+    private ListView<?> ref;
 
+    @FXML
+    private ImageView zero;
+
+    @FXML
+    private ImageView one;
+
+    @FXML
+    private ImageView two;
+
+    @FXML
+    private ImageView three;
+
+    @FXML
+    private ImageView four;
+
+    @FXML
+    private ImageView five;
+
+    @FXML
+    private ImageView six;
+
+    @FXML
+    private ImageView seven;
+
+    @FXML
+    private ImageView eight;
     @FXML
     private TextField inputState;
 
@@ -32,7 +62,14 @@ public class Controller implements Initializable {
 
     @FXML
     private ListView<String> exploredList;
+    @FXML
+    private Label depthLabel;
 
+    @FXML
+    private Label pathCost;
+
+    @FXML
+    private Label runtime;
 
     //Controller.GameEngine gameEngine = Controller.GameEngine.getInstance();
     Algorithm myAlgorithm;
@@ -51,6 +88,8 @@ public class Controller implements Initializable {
                         "DFS"
                 );
         algorithmSelector.setItems(options);
+        algorithmSelector.setValue("BFS");
+        myAlgorithm = new BFS();
         ObservableList<String> heuristic =
                 FXCollections.observableArrayList(
                         "Manhattan",
@@ -72,7 +111,7 @@ public class Controller implements Initializable {
 
     @FXML
     void generateBoard(ActionEvent event) {
-
+            inputState.setText("");
     }
 
     @FXML
@@ -94,6 +133,8 @@ public class Controller implements Initializable {
 
     @FXML
     void solve(ActionEvent event) {
+        long startTime = System.currentTimeMillis();
+
         //myAlgorithm= new BFS();
         outputList.getItems().clear();
         String test = inputState.getText();
@@ -136,6 +177,32 @@ public class Controller implements Initializable {
         outputList.getItems().add("Reached Goal");
 
         exploredList.getItems().clear();
+        for (Node i:
+             myAlgorithm.getExplored()) {
+            if (myAlgorithm instanceof A_Star){
+                myHeuristic =((A_Star) myAlgorithm).getHeuristicType();
+
+                exploredList.getItems().add(
+                        "Heuristic is " + myHeuristic.getHeuristic(i.getState())+"\n"+
+                                "Depth is " + i.getDepth()+"\n"+i.getState()[0]+" "+i.getState()[1]+" "+i.getState()[2]+"\n"+
+                                i.getState()[3]+" "+i.getState()[4]+" "+i.getState()[5]+"\n"+
+                                i.getState()[6]+" "+i.getState()[7]+" "+i.getState()[8]+"\n");
+            }else {
+                exploredList.getItems().add(
+                        "Depth is " + i.getDepth()+"\n"+i.getState()[0]+" "+i.getState()[1]+" "+i.getState()[2]+"\n"+
+                                i.getState()[3]+" "+i.getState()[4]+" "+i.getState()[5]+"\n"+
+                                i.getState()[6]+" "+i.getState()[7]+" "+i.getState()[8]+"\n");
+            }
+        }
+
+        depthLabel.setText(Integer.toString( myAlgorithm.getSearchDepth()));
+        pathCost.setText(Integer.toString( myAlgorithm.getCostPath()));
+
+        long stopTime = System.currentTimeMillis();
+        long elapsedTime = stopTime - startTime;
+        System.out.println("Elapsed time is " + elapsedTime);
+        runtime.setText(Long.toString(elapsedTime)+" MilliSecond");
 
     }
+
 }

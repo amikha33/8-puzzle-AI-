@@ -5,13 +5,13 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
 
 <AnchorPane prefHeight="400.0" prefWidth="813.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Controller">
    <children>
+      <ListView fx:id="ref" layoutX="19.0" layoutY="173.0" prefHeight="183.0" prefWidth="225.0" />
       <Button layoutX="96.0" layoutY="365.0" mnemonicParsing="false" text="Next Step" />
       <TextField fx:id="inputState" layoutX="64.0" layoutY="60.0" text="1 2 5 3 4 0 6 7 8" />
       <ComboBox fx:id="algorithmSelector" layoutX="63.0" layoutY="98.0" onAction="#selectAlgorithm" prefWidth="150.0" />
@@ -21,23 +21,60 @@
       <Button layoutX="228.0" layoutY="60.0" mnemonicParsing="false" onAction="#generateBoard" text="Generate Random" />
       <ListView fx:id="outputList" layoutX="377.0" layoutY="165.0" prefHeight="200.0" prefWidth="200.0" />
       <Label layoutX="11.0" layoutY="144.0" text="Heuristic" />
-      <Label layoutX="432.0" layoutY="136.0" text="Solution Steps" />
-      <GridPane layoutX="39.0" layoutY="188.0" prefHeight="154.0" prefWidth="200.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-      </GridPane>
+      <Label layoutX="403.0" layoutY="136.0" text="Solution Steps/ Path to goal" />
       <Button layoutX="228.0" layoutY="140.0" mnemonicParsing="false" onAction="#solve" text="Solve" />
-      <Label layoutX="377.0" layoutY="52.0" text="Depth" />
-      <Label layoutX="377.0" layoutY="77.0" text="Cost to path" />
+      <Label layoutX="377.0" layoutY="52.0" text="Search Depth" />
+      <Label layoutX="377.0" layoutY="77.0" text="Cost of path" />
       <ListView fx:id="exploredList" layoutX="599.0" layoutY="165.0" prefHeight="200.0" prefWidth="200.0" />
-      <Label layoutX="654.0" layoutY="136.0" text="Explored list" />
+      <Label layoutX="654.0" layoutY="136.0" text="Explored/Explored list" />
+      <Label fx:id="depthLabel" layoutX="471.0" layoutY="52.0" text="-" />
+      <Label layoutX="377.0" layoutY="102.0" text="Runtime" />
+      <Label fx:id="pathCost" layoutX="471.0" layoutY="77.0" text="-" />
+      <Label fx:id="runtime" layoutX="471.0" layoutY="102.0" text="-" />
+      <ImageView fx:id="zero" fitHeight="50.0" fitWidth="50.0" layoutX="33.0" layoutY="182.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/0.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="one" fitHeight="50.0" fitWidth="50.0" layoutX="105.0" layoutY="182.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/1.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="two" fitHeight="50.0" fitWidth="50.0" layoutX="177.0" layoutY="182.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/2.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="three" fitHeight="50.0" fitWidth="50.0" layoutX="33.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/3.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="four" fitHeight="50.0" fitWidth="50.0" layoutX="105.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/4.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="five" fitHeight="50.0" fitWidth="50.0" layoutX="177.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/5.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="six" fitHeight="50.0" fitWidth="50.0" layoutX="33.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/6.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="seven" fitHeight="50.0" fitWidth="50.0" layoutX="105.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/7.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="eight" fitHeight="50.0" fitWidth="50.0" layoutX="177.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/8.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

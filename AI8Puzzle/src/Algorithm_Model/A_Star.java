@@ -155,6 +155,21 @@ public class A_Star implements Algorithm {
         return pathCost;
     }
 
+    @Override
+    public int getSearchDepth() {
+        int  searchDepth = 0;
+
+        for (GreedyNode node:frontierList) {
+            if (node.getDepth()>searchDepth)
+                searchDepth=node.getDepth();
+        }
+        for (GreedyNode node:explored) {
+            if (node.getDepth()>searchDepth)
+                searchDepth=node.getDepth();
+        }
+        return searchDepth;
+    }
+
 
     public Heuristic getHeuristicType() {
         return heuristicType;

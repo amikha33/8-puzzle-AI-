@@ -3,6 +3,8 @@ package Algorithm_Model;/*
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+import com.sun.deploy.util.SearchPath;
+
 import java.util.*;
 
 /**
@@ -11,6 +13,7 @@ import java.util.*;
  */
 public class BFS implements Algorithm{
     ArrayList<Node> frontierList;
+    int searchDepth = 0;
     @Override
     public ArrayList<Node> getExplored(){
         return frontierList;
@@ -66,6 +69,11 @@ public class BFS implements Algorithm{
         //no  Cost int BFS
         return 0;
 
+    }
+
+    @Override
+    public int getSearchDepth() {
+        return searchDepth;
     }
 
     /*
@@ -167,7 +175,7 @@ public class BFS implements Algorithm{
                 int found= searchCount-1;
                 System.out.println("Search path count " +found);
                 System.out.println("sent list");
-
+                searchDepth = tempNode.getDepth();
 
 
                 return new ArrayList(solutionPath);
