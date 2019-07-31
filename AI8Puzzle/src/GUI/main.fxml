@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Controller">
+<AnchorPane prefHeight="400.0" prefWidth="813.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Controller">
    <children>
       <Button layoutX="96.0" layoutY="365.0" mnemonicParsing="false" text="Next Step" />
       <TextField fx:id="inputState" layoutX="64.0" layoutY="60.0" text="1 2 5 3 4 0 6 7 8" />
@@ -37,5 +37,7 @@
       <Button layoutX="228.0" layoutY="140.0" mnemonicParsing="false" onAction="#solve" text="Solve" />
       <Label layoutX="377.0" layoutY="52.0" text="Depth" />
       <Label layoutX="377.0" layoutY="77.0" text="Cost to path" />
+      <ListView fx:id="exploredList" layoutX="599.0" layoutY="165.0" prefHeight="200.0" prefWidth="200.0" />
+      <Label layoutX="654.0" layoutY="136.0" text="Explored list" />
    </children>
 </AnchorPane>
