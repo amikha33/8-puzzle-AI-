@@ -18,6 +18,7 @@ import java.lang.reflect.Array;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
@@ -148,7 +149,14 @@ public class Controller implements Initializable {
 
     @FXML
     void generateBoard(ActionEvent event) {
-            inputState.setText("");
+           Random myrand= new Random();
+           int[] arr = myrand.ints(0, 9).distinct().limit(9).toArray();
+
+        inputState.setText(Integer.toString(arr[0]));
+        for (int i = 1; i < 9; i++) {
+            inputState.setText(inputState.getText() + " "+  Integer.toString(arr[i]));
+
+        }
     }
 
 
