@@ -121,5 +121,7 @@
             <Image url="@Images/8.png" />
          </image>
       </ImageView>
+      <Label layoutX="552.0" layoutY="52.0" text="Explored Nodes" />
+      <Label fx:id="exploredLabel" layoutX="710.0" layoutY="52.0" text="-" />
    </children>
 </AnchorPane>

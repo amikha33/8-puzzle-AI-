@@ -16,10 +16,7 @@ import javafx.scene.image.ImageView;
 import java.awt.*;
 import java.lang.reflect.Array;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Random;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class Controller implements Initializable {
 
@@ -101,7 +98,8 @@ public class Controller implements Initializable {
 
     @FXML
     private Label runtime;
-
+    @FXML
+    private Label exploredLabel;
     //Controller.GameEngine gameEngine = Controller.GameEngine.getInstance();
     Algorithm myAlgorithm;
     Heuristic myHeuristic;
@@ -294,7 +292,12 @@ public class Controller implements Initializable {
         long stopTime = System.currentTimeMillis();
         long elapsedTime = stopTime - startTime;
         System.out.println("Elapsed time is " + elapsedTime);
-        runtime.setText(Long.toString(elapsedTime)+" MilliSecond");
+        runtime.setText(Long.toString(elapsedTime)+" MilliSecond "+Long.toString(elapsedTime/1000)+ " Seconds " + Long.toString(elapsedTime/1000/60)+" Minutes");
+
+        Stack<Node> stack = new Stack<>();
+        System.out.println("Max Depth: " + myAlgorithm.getMaxDepth(stack,new int[]{0,1,2,3,4,5,6,7,8}) + "      path cost: "+myAlgorithm.getCostPath()+"      number of explored nodes: " );
+
+        exploredLabel.setText(Integer.toString(myAlgorithm.getExplored().size()));
         nextMotion(null);
     }
 

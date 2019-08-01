@@ -3,7 +3,6 @@ package Algorithm_Model;/*
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-import com.sun.deploy.util.SearchPath;
 
 import java.util.*;
 
@@ -102,6 +101,7 @@ public class BFS implements Algorithm{
      * @param q - A SearchNode queue to be populated and searched
      */
     public ArrayList<Node> performSearch(Queue<Node> q) {
+        searchDepth = 0;
         int searchCount = 1; // counter for number of iterations
         frontierList = new ArrayList();
 
@@ -141,6 +141,9 @@ public class BFS implements Algorithm{
                     //   System.out.println("Not Null at "+i);
                     Node newNode = Children.get(i);
                     q.add(newNode);
+                    if (newNode.getDepth() > searchDepth){
+                        searchDepth = newNode.getDepth();
+                    }
 //                        System.out.println(newNode.getState()[0]+" "+newNode.getState()[1]+" "+newNode.getState()[2]+"\n"+
 //                                newNode.getState()[3]+" "+newNode.getState()[4]+" "+newNode.getState()[5]+"\n"+
 //                                newNode.getState()[6]+" "+newNode.getState()[7]+" "+newNode.getState()[8]+"\n"
@@ -175,7 +178,6 @@ public class BFS implements Algorithm{
                 int found= searchCount-1;
                 System.out.println("Search path count " +found);
                 System.out.println("sent list");
-                searchDepth = tempNode.getDepth();
 
 
                 return new ArrayList(solutionPath);
