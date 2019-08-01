@@ -12,7 +12,7 @@
 <AnchorPane prefHeight="400.0" prefWidth="813.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Controller">
    <children>
       <ListView fx:id="ref" layoutX="19.0" layoutY="173.0" prefHeight="183.0" prefWidth="225.0" />
-      <Button layoutX="96.0" layoutY="365.0" mnemonicParsing="false" text="Next Step" />
+      <Button layoutX="96.0" layoutY="365.0" mnemonicParsing="false" onAction="#nextMotion" text="Next Step" />
       <TextField fx:id="inputState" layoutX="64.0" layoutY="60.0" text="1 2 5 3 4 0 6 7 8" />
       <ComboBox fx:id="algorithmSelector" layoutX="63.0" layoutY="98.0" onAction="#selectAlgorithm" prefWidth="150.0" />
       <ComboBox fx:id="heuristicSelector" layoutX="64.0" layoutY="140.0" onAction="#SelectHeuristic" prefWidth="150.0" />
@@ -72,6 +72,51 @@
          </image>
       </ImageView>
       <ImageView fx:id="eight" fitHeight="50.0" fitWidth="50.0" layoutX="177.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/8.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="zero1" fitHeight="50.0" fitWidth="50.0" layoutX="35.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@Images/0.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="one1" fitHeight="50.0" fitWidth="50.0" layoutX="107.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@Images/1.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="two1" fitHeight="50.0" fitWidth="50.0" layoutX="179.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@Images/2.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="three1" fitHeight="50.0" fitWidth="50.0" layoutX="35.0" layoutY="239.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@Images/3.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="four1" fitHeight="50.0" fitWidth="50.0" layoutX="107.0" layoutY="239.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@Images/4.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="five1" fitHeight="50.0" fitWidth="50.0" layoutX="179.0" layoutY="239.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@Images/5.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="six1" fitHeight="50.0" fitWidth="50.0" layoutX="35.0" layoutY="299.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@Images/6.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="seven1" fitHeight="50.0" fitWidth="50.0" layoutX="107.0" layoutY="299.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@Images/7.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="eight1" fitHeight="50.0" fitWidth="50.0" layoutX="179.0" layoutY="299.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@Images/8.png" />
          </image>

@@ -3,7 +3,8 @@ package Algorithm_Model;/*
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-import java.lang.reflect.Array;
+import com.sun.deploy.util.SearchPath;
+
 import java.util.*;
 
 /**
@@ -11,21 +12,21 @@ import java.util.*;
  * @author Aghapy
  */
 public class DFS implements Algorithm{
-    int searchDepth = 0;
     ArrayList<Node> frontierList;
+    int searchDepth = 0;
     @Override
     public ArrayList<Node> getExplored(){
         return frontierList;
     }
     @Override
     public ArrayList<Node> search(int [] board, Node parent ) {
-        Stack<Node> queue = new Stack<Node>();
+        Stack<Node> stack = new Stack<Node>();
         Node root = new Node(board, null);
-        queue.add(root);
+        stack.push(root);
 
         //performSearch(queue);
 
-        return performSearch(queue);
+        return performSearch(stack);
     }
 
     @Override
@@ -58,14 +59,14 @@ public class DFS implements Algorithm{
             maxDepth = maxDepth + 1;
 
         }
-        System.out.println("Max Depth in DFS" + maxDepth);
+        System.out.println("Max Depth in BFS" + maxDepth);
 
         return maxDepth;
     }
 
     @Override
     public int getCostPath() {
-        //no  Cost int DFS
+        //no  Cost int BFS
         return 0;
 
     }
@@ -100,7 +101,7 @@ public class DFS implements Algorithm{
      *
      * @param q - A SearchNode queue to be populated and searched
      */
-    public ArrayList<Node> performSearch(Stack <Node> q) {
+    public ArrayList<Node> performSearch(Stack<Node> q) {
         int searchCount = 1; // counter for number of iterations
         frontierList = new ArrayList();
 
@@ -140,7 +141,7 @@ public class DFS implements Algorithm{
                     // the current cost total in the SearchNode
                     //   System.out.println("Not Null at "+i);
                     Node newNode = Children.get(i);
-                    q.add(newNode);
+                    q.push(newNode);
 //                        System.out.println(newNode.getState()[0]+" "+newNode.getState()[1]+" "+newNode.getState()[2]+"\n"+
 //                                newNode.getState()[3]+" "+newNode.getState()[4]+" "+newNode.getState()[5]+"\n"+
 //                                newNode.getState()[6]+" "+newNode.getState()[7]+" "+newNode.getState()[8]+"\n"
@@ -169,12 +170,15 @@ public class DFS implements Algorithm{
                 // The size of the stack before looping through and emptying it.
                 int loopSize = solutionPath.size();
                 Collections.reverse(solutionPath);
+
                 int[] arr = new int[]
                         {0, 1, 2, 3, 4, 5, 6, 7, 8};
-                searchDepth = getMaxDepth(solutionPath,arr);
                 int found= searchCount-1;
                 System.out.println("Search path count " +found);
                 System.out.println("sent list");
+                searchDepth = tempNode.getDepth();
+
+
                 return new ArrayList(solutionPath);
 
             }
@@ -189,6 +193,8 @@ public class DFS implements Algorithm{
                     //System.exit(0);
                 }*/
         }
+
+
         System.out.println("Shouldn't reach this statment");
         return null;
         // This should never happen with our current puzzles.

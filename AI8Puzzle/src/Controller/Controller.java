@@ -14,8 +14,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 
 import java.awt.*;
+import java.lang.reflect.Array;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
@@ -50,6 +52,33 @@ public class Controller implements Initializable {
     @FXML
     private ImageView eight;
     @FXML
+    private ImageView zero1;
+
+    @FXML
+    private ImageView one1;
+
+    @FXML
+    private ImageView two1;
+
+    @FXML
+    private ImageView three1;
+
+    @FXML
+    private ImageView four1;
+
+    @FXML
+    private ImageView five1;
+
+    @FXML
+    private ImageView six1;
+
+    @FXML
+    private ImageView seven1;
+
+    @FXML
+    private ImageView eight1;
+
+    @FXML
     private TextField inputState;
 
     @FXML
@@ -75,6 +104,9 @@ public class Controller implements Initializable {
     //Controller.GameEngine gameEngine = Controller.GameEngine.getInstance();
     Algorithm myAlgorithm;
     Heuristic myHeuristic;
+    ArrayList<Node>Path;
+    int count = 0;
+
     @Override
     public void initialize(URL url, ResourceBundle rb){
 //         = new BFS();
@@ -88,6 +120,10 @@ public class Controller implements Initializable {
                         "BFS",
                         "DFS"
                 );
+
+//        one.setLayoutX(eight1.getLayoutX());
+//        one.setLayoutY(eight1.getLayoutY());
+
         algorithmSelector.setItems(options);
         algorithmSelector.setValue("BFS");
         myAlgorithm = new BFS();
@@ -121,7 +157,7 @@ public class Controller implements Initializable {
         int y = 0;
         for (int i = 0; i <9 ; i++) {
             ImageView myImageView = null;
-            switch (i){
+            switch (state[i]){
                 case 0:
                     myImageView = zero;
                     break;
@@ -153,8 +189,8 @@ public class Controller implements Initializable {
                      System.out.println("Switch case failed");
                     break;
             }
-            myImageView.setX(ref.getLayoutX() - 30 + x * 5);
-            myImageView.setY(ref.getLayoutY()-175+ y * 3);
+            myImageView.setLayoutX(ref.getLayoutX() +15+ x * 60);
+            myImageView.setLayoutY(ref.getLayoutY()+25+ y * 50);
             x++;
             if (x>2){
                 y++;
@@ -181,6 +217,7 @@ public class Controller implements Initializable {
 
     @FXML
     void solve(ActionEvent event) {
+        count = 0;
         long startTime = System.currentTimeMillis();
 
         //myAlgorithm= new BFS();
@@ -191,7 +228,7 @@ public class Controller implements Initializable {
         for (int i = 0; i < arr.length; i++){
             arr[i] = Integer.parseInt(integerStrings[i]);
         }
-        ArrayList<Node>Path = myAlgorithm.search(arr,null);
+        Path = myAlgorithm.search(arr,null);
         System.out.println("path is "+Path.size());
         for (Node i:
              Path) {
@@ -241,7 +278,6 @@ public class Controller implements Initializable {
                                 i.getState()[3]+" "+i.getState()[4]+" "+i.getState()[5]+"\n"+
                                 i.getState()[6]+" "+i.getState()[7]+" "+i.getState()[8]+"\n");
             }
-            move(i.getState());
         }
 
         depthLabel.setText(Integer.toString( myAlgorithm.getSearchDepth()));
@@ -251,7 +287,24 @@ public class Controller implements Initializable {
         long elapsedTime = stopTime - startTime;
         System.out.println("Elapsed time is " + elapsedTime);
         runtime.setText(Long.toString(elapsedTime)+" MilliSecond");
-
+        nextMotion(null);
     }
 
+    @FXML
+    void nextMotion(ActionEvent event) {
+        try {
+            if (count> Path.size()){
+                System.out.println("enddd");
+                return;
+            }
+            System.out.println("Path size" + Path.size());
+            move(Path.get(count).getState());
+            System.out.println(Arrays.toString( Path.get(count).getState()));
+            count++;
+            System.out.println("jere " + Integer.toString(count));
+
+        }catch (Exception e){
+            System.out.println("error in next motion");
+        }
+    }
 }
