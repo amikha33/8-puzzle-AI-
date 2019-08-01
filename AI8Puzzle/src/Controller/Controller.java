@@ -223,6 +223,7 @@ public class Controller implements Initializable {
 
     @FXML
     void solve(ActionEvent event) {
+        System.out.close();
         count = 0;
         long startTime = System.currentTimeMillis();
 
@@ -234,6 +235,16 @@ public class Controller implements Initializable {
         for (int i = 0; i < arr.length; i++){
             arr[i] = Integer.parseInt(integerStrings[i]);
         }
+        int sum =0;
+        for (int i:arr ){
+            sum += i;
+        }
+        System.out.println(sum);
+        if (sum != 36 ){
+            System.out.println("ERROR WRONG INPUT");
+            return;
+        }
+
         Path = myAlgorithm.search(arr,null);
         System.out.println("path is "+Path.size());
         for (Node i:
@@ -298,6 +309,7 @@ public class Controller implements Initializable {
         System.out.println("Max Depth: " + myAlgorithm.getMaxDepth(stack,new int[]{0,1,2,3,4,5,6,7,8}) + "      path cost: "+myAlgorithm.getCostPath()+"      number of explored nodes: " );
 
         exploredLabel.setText(Integer.toString(myAlgorithm.getExplored().size()));
+
         nextMotion(null);
     }
 
