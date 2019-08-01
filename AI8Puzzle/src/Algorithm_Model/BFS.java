@@ -65,8 +65,7 @@ public class BFS implements Algorithm{
 
     @Override
     public int getCostPath() {
-        //no  Cost int BFS
-        return 0;
+        return searchDepth;
 
     }
 
@@ -142,6 +141,7 @@ public class BFS implements Algorithm{
                     Node newNode = Children.get(i);
                     q.add(newNode);
                     if (newNode.getDepth() > searchDepth){
+                        System.out.println("here in search depth" + searchDepth);
                         searchDepth = newNode.getDepth();
                     }
 //                        System.out.println(newNode.getState()[0]+" "+newNode.getState()[1]+" "+newNode.getState()[2]+"\n"+

@@ -65,8 +65,8 @@ public class DFS implements Algorithm{
 
     @Override
     public int getCostPath() {
-        //no  Cost int BFS
-        return 0;
+        return searchDepth;
+
 
     }
 
