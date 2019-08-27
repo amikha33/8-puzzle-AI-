@@ -137,17 +137,7 @@ public class A_Star implements Algorithm {
         }
         return x;
     }
-    public void setExplored(ArrayList<GreedyNode> explored) {
-        this.explored = explored;
-    }
 
-    public ArrayList<Node> getPath() {
-        return path;
-    }
-
-    public void setPath(ArrayList<Node> path) {
-        this.path = path;
-    }
 
 
     @Override
@@ -175,7 +165,5 @@ public class A_Star implements Algorithm {
         return heuristicType;
     }
 
-    public void setHeuristicType(Heuristic heuristicType) {
-        this.heuristicType = heuristicType;
-    }
+
 }

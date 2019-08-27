@@ -10,6 +10,9 @@ import utility.Utility;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * @author Harraz21
+ */
 
 
 public class Node {
@@ -33,9 +36,7 @@ public class Node {
         this.parent = parent;
     }
 
-    Node(EightPuzzleState eightPuzzleState) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+
 
 
 
@@ -163,9 +164,7 @@ public class Node {
         return children;
     }
 
-    public void setChildren(ArrayList<Node> children) {
-        this.children = children;
-    }
+
 
     public Node getParent() {
         return parent;
